@@ -8,7 +8,7 @@ var outputPriceDate = document.querySelector("#price-date");
 function calculateProfitAndLoss(ip, qty, cp) {
   var currentDate = new Date();
 
-  if ((ip, qty, cp)) {
+  if (ip>0 && qty>0 && cp>0) {
     if (cp > ip) {
       var profit = (cp - ip) * qty;
       var profitPercentage = (((profit / ip) * 100)/qty).toFixed(2);
@@ -22,17 +22,17 @@ function calculateProfitAndLoss(ip, qty, cp) {
 
       if (lossPercentage > 50) {
         outputEl.innerText = `You got a loss of Rs.${loss} and the loss percentage is ${lossPercentage}% 😭`;
-        outputEl.style.color = "yellow";
+        outputEl.style.color = "red";
       } else {
         outputEl.innerText = `Hey, the loss is Rs.${loss} and the loss percentage is ${lossPercentage}% 😔`;
-        outputEl.style.color = "red";
+        outputEl.style.color = "yellow";
       }
     } else {
       outputEl.innerText = "No Profit, No Loss 🙂";
       outputEl.style.color = "beige";
     }
   } else {
-    outputEl.innerText = "Please enter valid details";
+    outputEl.innerText = "Entered values should be positive";
   }
 
 
@@ -43,7 +43,11 @@ function checkHandler() {
   var qty = Number(quantity.value);
   var cp = Number(currentPrice.value);
 
-  calculateProfitAndLoss(ip, qty, cp);
+ if(ip,qty,cp){
+    calculateProfitAndLoss(ip, qty, cp);
+   } else{
+    outputEl.innerText = "Please enter valid details";
+   }
 }
 
 checkBtn.addEventListener("click", checkHandler);

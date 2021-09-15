@@ -12,6 +12,7 @@ function calculateProfitAndLoss(ip, qty, cp) {
     if (cp > ip) {
       var profit = (cp - ip) * qty;
       var profitPercentage = (((profit / ip) * 100)/qty).toFixed(2);
+      outputPriceDate.style.display = "block";
       outputPriceDate.innerText = `The price of stock purchased on ${currentDate.toDateString()} is Rs.${ip} `;
 
       outputEl.innerText = `You got a profit of Rs.${profit} and the profit percentage is ${profitPercentage}% 🤑`;
@@ -21,19 +22,26 @@ function calculateProfitAndLoss(ip, qty, cp) {
       var lossPercentage = (((loss / ip) * 100)/qty).toFixed(2);
 
       if (lossPercentage > 50) {
+        outputPriceDate.style.display = "block";
+        outputPriceDate.innerText = `The price of stock purchased on ${currentDate.toDateString()} is Rs.${ip} `;
         outputEl.innerText = `You got a loss of Rs.${loss} and the loss percentage is ${lossPercentage}% 😭`;
         outputEl.style.color = "red";
       } else {
+        outputPriceDate.style.display = "block";
+        outputPriceDate.innerText = `The price of stock purchased on ${currentDate.toDateString()} is Rs.${ip} `;
         outputEl.innerText = `Hey, the loss is Rs.${loss} and the loss percentage is ${lossPercentage}% 😔`;
         outputEl.style.color = "yellow";
       }
     } else {
+      outputPriceDate.style.display = "block";
+      outputPriceDate.innerText = `The price of stock purchased on ${currentDate.toDateString()} is Rs.${ip} `;
       outputEl.innerText = "No Profit, No Loss 🙂";
       outputEl.style.color = "beige";
     }
   } else {
-     outputPriceDate.style.display = "none";
+    outputPriceDate.style.display = "none";
     outputEl.innerText = "Entered values should be positive";
+    outputEl.style.color = "beige"
   }
 
 
@@ -48,6 +56,7 @@ function checkHandler() {
     calculateProfitAndLoss(ip, qty, cp);
    } else{
     outputEl.innerText = "Please enter valid details";
+    outputEl.style.color = "beige"
     outputPriceDate.style.display = "none";
    }
 }

@@ -32,6 +32,7 @@ function calculateProfitAndLoss(ip, qty, cp) {
       outputEl.style.color = "beige";
     }
   } else {
+     outputPriceDate.style.display = "none";
     outputEl.innerText = "Entered values should be positive";
   }
 
@@ -47,6 +48,7 @@ function checkHandler() {
     calculateProfitAndLoss(ip, qty, cp);
    } else{
     outputEl.innerText = "Please enter valid details";
+    outputPriceDate.style.display = "none";
    }
 }
 

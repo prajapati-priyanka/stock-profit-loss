@@ -65,3 +65,25 @@ label input {
   font-size: 1rem;
   opacity: 0.7;
 }
+
+footer {
+  /* background-color: #f77f0030; */
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem;
+  
+}
+footer h2 {
+  text-decoration: underline;
+}
+.footer-link {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.7rem;
+  font-size: 1rem;
+}
+.footer-link a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: blanchedalmond;
+}
